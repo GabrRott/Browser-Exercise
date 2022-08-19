@@ -1,20 +1,22 @@
 //variables
 
 const resultado = document.querySelector('#resultado');
+const year = document.querySelector('#year');
+const max = new Date().getFullYear();
+const min = max - 10;
 
-
-
-//eventos
+//events
 document.addEventListener('DOMContentLoaded', () =>{
     mostrarAutos();
+
+    //llena las opciones de años
+    fillSelect()
+
+
+
 })
 
-function  mostrarAutos() {
-
-}
-
-
-//funciones
+//functions
 
 function mostrarAutos(){
     autos.forEach( auto =>{
@@ -27,8 +29,21 @@ function mostrarAutos(){
             ${precio} - Color: ${color};    
         `;
 
-        //insertar en el html
+        //insert on html
         resultado.appendChild(autoHTML);
 
     })
+}
+
+function fillSelect(){
+    for( let i = max; i >= min; i--){
+        const options = document.createElement('option');
+        options.value = i;
+        options.textContent = i;
+        year.appendChild(options); //Add options to the year list
+
+
+    }
+
+
 }
